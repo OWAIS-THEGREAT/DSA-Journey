@@ -1,3 +1,4 @@
+1.
 Link - https://leetcode.com/problems/second-largest-digit-in-a-string/
 Code - 
 class Solution {
@@ -16,5 +17,30 @@ public:
          advance(it,v.size()-2);
          return *it;
          }
+    }
+};
+
+2.
+Link - https://leetcode.com/problems/rotate-array/
+Code - 
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int nrot = k%nums.size();
+        vector<int>v;
+        int p = nums.size()-nrot;
+        if(nrot==0){
+            return;
+        }
+        else{
+            reverse(nums.begin(),nums.end());
+            for(int i=0;i<nrot;i++){
+                nums.push_back(nums[i]);
+            }
+            reverse(nums.begin(),nums.end());
+            for(int i=0;i<nrot;i++){
+                nums.pop_back();
+            }
+        }
     }
 };
